@@ -281,7 +281,7 @@ def run_detect():
         if not ARGS.exhaustive and len(tags) > 0 and not any([t in tags for t in file_versions.values()[0]]):
             continue
 
-        if config['patterns'] is not None:
+        if 'patterns' in config:
             for pattern,repl in config['patterns'].iteritems():
                 file = re.sub(pattern, repl, file)
 
