@@ -14,7 +14,7 @@ Basic usage:
 user@host:~$ git clone https://github.com/mwulftange/detagtor
 user@host:~$ git clone https://github.com/WordPress/WordPress
 user@host:~$ cd WordPress
-user@host:~/WordPress$ ~/detagtor/detagtor.py index --incude="*.{css,js}" > wordpress.index.json
-user@host:~/WordPress$ ~/detagtor/detagtor.py detect -i wordpress.index.json https://www.wordpress.org/
+user@host:~/WordPress$ ~/detagtor/detagtor.py index --include "*.{css,js}" > wordpress.index.json
+user@host:~/WordPress$ ~/detagtor/detagtor.py detect https://www.wordpress.org/ < wordpress.index.json
 ```
 
