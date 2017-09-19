@@ -33,7 +33,10 @@ class BraceExpandAction(argparse.Action):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description='Detect tagged versions of a web application.',
+        epilog='Use the \'index\' command to build a knowledge base of a source code repository. Then use the \'detect\' command to run the tag detection against a web application based on the knowledge base.'
+    )
 
     # sub-parser for the commands 'index' and 'detect'
     subparsers = parser.add_subparsers(dest='command', help='command to run; use \'detagtor.py <command> -h\' for help on command')
