@@ -39,7 +39,7 @@ def parse_args():
     # argparser for 'index' command arguments
     index_parser = subparsers.add_parser(
         'index',
-        help='index a code source repository',
+        help='index a source code repository',
         epilog='PATTERN allows glob and brace expansion expressions. For example, \'--include "*.{css,js}"\' will match any file ending with \'.css\' or \'.js\'.'
     )
     index_parser.add_argument(
