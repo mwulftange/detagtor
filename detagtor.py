@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# Copyright (c) Markus Wulftange (@mwulftange)
+
 from __future__ import print_function
 import os,sys
 import argparse
