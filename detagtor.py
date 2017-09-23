@@ -220,7 +220,7 @@ def sort_index(t):
     file_tags = [item for sublist in file_versions.values() for item in sublist]
     file_tags_uniq = list(set(file_tags))
 
-    return len(file_versions) * (len(file_tags_uniq) / len(file_tags))
+    return -len(file_versions) * (len(file_tags_uniq) / len(file_tags))
 
 
 def run_index():
@@ -266,7 +266,7 @@ def run_index():
 
     sorted_index = OrderedDict(sorted(index.items(), key=sort_index))
 
-    ARGS.output.write(json.dumps(sorted_index))
+    ARGS.output.write(json.dumps(sorted_index.items()))
 
 
 def run_detect():
@@ -279,7 +279,7 @@ def run_detect():
 
     tags = set()
     tag_counts = {}
-    for file, file_versions in index.iteritems():
+    for file, file_versions in index:
         if not ARGS.exhaustive and len(tags) > 0 and not any([t in tags for t in file_versions.values()[0]]):
             continue
 
@@ -320,7 +320,7 @@ def run_detect():
     tag_counts = OrderedDict(sorted(tag_counts.items(), key=lambda t: -t[1]))
 
     print_status('Matched tags in descending order: ', end='')
-    print(json.dumps(tag_counts))
+    print(json.dumps(tag_counts.items()))
 
 
 if __name__ == '__main__':
