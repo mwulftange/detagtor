@@ -11,10 +11,12 @@ This tool consists of two basic commands:
 Basic usage:
 
 ```
-user@host:~$ git clone https://github.com/mwulftange/detagtor
-user@host:~$ git clone https://github.com/WordPress/WordPress
-user@host:~$ cd WordPress
-user@host:~/WordPress$ ~/detagtor/detagtor.py index --include "*.{css,js}" > wordpress.index.json
-user@host:~/WordPress$ ~/detagtor/detagtor.py detect https://www.wordpress.org/ < wordpress.index.json
+ubuntu@ubuntu:~$ git clone https://github.com/mwulftange/detagtor
+ubuntu@ubuntu:~$ git clone https://github.com/WordPress/WordPress
+ubuntu@ubuntu:~$ cd WordPress
+ubuntu@ubuntu:~/WordPress$ ~/detagtor/detagtor.py index --include "*.{css,js,txt}" -v > wordpress.index.json
+ubuntu@ubuntu:~/WordPress$ ~/detagtor/detagtor.py detect https://www.wordpress.com/ -v < wordpress.index.json
 ```
+
+[![asciicast](https://asciinema.org/a/VwSMZa9UATh9r6RrfwQr3MeZT.png)](https://asciinema.org/a/VwSMZa9UATh9r6RrfwQr3MeZT)
 
