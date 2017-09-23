@@ -250,7 +250,6 @@ def run_index():
 
         n = 0
         files = get_files(tag)
-        # print_status(files)
         for file in files:
             with open(file, 'rb', buffering=0) as f:
                 hash = hash_file(f)
@@ -264,8 +263,6 @@ def run_index():
 
         if ARGS.verbose:
             print_status('%d file(s) indexed' % (n))
-
-        #break
 
     sorted_index = OrderedDict(sorted(index.items(), key=sort_index))
 
@@ -290,9 +287,6 @@ def run_detect():
             for pattern,repl in config['patterns'].iteritems():
                 file = re.sub(pattern, repl, file)
 
-        if ARGS.verbose:
-            print_status('Requesting file \'%s\'' % (file))
-
         resp = http.request(
             'GET',
             urlparse.urljoin(ARGS.url, file),
@@ -305,7 +299,8 @@ def run_detect():
         if hash not in file_versions:
             continue
 
-        print_status('File \'%s\' found with hash \'%s\'' % (file, hash))
+        if ARGS.verbose:
+            print_status('File \'%s\' found with hash \'%s\'' % (file, hash))
 
         for tag in file_versions[hash]:
             if tag not in tag_counts:
